@@ -1,11 +1,10 @@
 from flask import Flask, request
 from flask_restful import Api, Resource
-import json
 
 application = Flask(__name__)
 api = Api(application)
 
-# In-memory storage TODO: replace with database 
+# In-memory storage (replace with database in production)
 players = {}
 scores = {}
 
@@ -22,9 +21,15 @@ class PlayerList(Resource):
         return players
 
     def post(self):
-        player_id = max(int(s) for s in players.keys() + ['0']) + 1
-        players[str(player_id)] = request.form['data']
-        return {player_id: players[str(player_id)]}, 201
+        # This line does the following:
+        # 1. Combines the existing player IDs with '0' using the | operator
+        # 2. Converts all IDs to integers
+        # 3. Finds the maximum value and adds 1 to get the new player_id
+        # 4. Converts the result back to a string
+        player_id = str(max(map(int, players.keys() | {'0'})) + 1)
+        
+        players[player_id] = request.form['data']
+        return {player_id: players[player_id]}, 201
 
 class Score(Resource):
     def get(self, player_id):
@@ -39,4 +44,4 @@ api.add_resource(Player, '/players/<player_id>')
 api.add_resource(Score, '/scores/<player_id>')
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(debug=True, port=5001)
