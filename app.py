@@ -7,11 +7,11 @@ from boto3.dynamodb.conditions import Key
 
 load_dotenv()
 
-application = Flask(__name__)
-api = Api(application)
+app = Flask(__name__)
+api = Api(app)
 
 # Initialize DynamoDB client
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb', 'us-east-1')
 player_table = dynamodb.Table('Players')
 score_table = dynamodb.Table('Scores')
 
@@ -79,5 +79,9 @@ api.add_resource(PlayerList, '/players')
 api.add_resource(Player, '/players/<player_id>')
 api.add_resource(Score, '/scores/<player_id>')
 
+@app.route('/')
+def hello_world():
+    return 'Hello! This is a Docker application'
+
 if __name__ == '__main__':
-    application.run(debug=True, port=5001)
+    app.run(debug=True, port=5001)
