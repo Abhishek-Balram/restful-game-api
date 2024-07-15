@@ -1,8 +1,7 @@
 # Game Data Management API
 
 ## AWS Deployment
-
-The application is deployed on AWS EC2. Due to security measures, the live link requires updated session credentials. Please contact me at `abhishek.balram@icloud.com` for access to the live demo.
+The application is currently deployed on AWS EC2. For security reasons, the live link has been temporarily omitted. I plan to make the application publicly accessible after implementing additional security measures, contact me at `abhishek.balram@icloud.com` for early access.
 
 ## Project Overview
 This project is a RESTful API built with Python and Flask for managing game data. It's containerized with Docker and deployed on AWS EC2, utilizing AWS DynamoDB for data storage. This showcase implements backend development, cloud technologies, and DevOps practices. I'm always open to discussing the technical details and design decisions behind this implementation. Please contact at `abhishek.balram@icloud.com`
@@ -91,9 +90,6 @@ This project is a RESTful API built with Python and Flask for managing game data
    Expected output: A JSON object with the player ID and their score
 
 Note: This setup uses the production database even for local testing. Be cautious about the data you input during testing.
-
-## AWS Deployment
-The application is currently deployed on AWS EC2. For security reasons, the live link has been temporarily omitted. I plan to make the application publicly accessible after implementing additional security measures, contact me at `abhishek.balram@icloud.com` for early access.
 
 ## Future Enhancements
 - Implement user authentication and authorization
