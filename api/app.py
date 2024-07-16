@@ -1,5 +1,7 @@
 from dotenv import load_dotenv
 from flask import Flask, request
+from flask_cors import CORS
+
 from flask_restful import Api, Resource
 import boto3
 from botocore.exceptions import ClientError
@@ -8,6 +10,7 @@ from boto3.dynamodb.conditions import Key
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 # Initialize DynamoDB client

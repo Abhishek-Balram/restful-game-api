@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Score Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Player Score Management</h1>
+    <div class="container">
+        <div class="section">
+            <h2>Add New Player</h2>
+            <input type="text" id="newPlayerData" placeholder="Enter player data">
+            <button onclick="addPlayer()">Add Player</button>
+        </div>
+        <div class="section">
+            <h2>Get Player</h2>
+            <input type="text" id="getPlayerId" placeholder="Enter player ID">
+            <button onclick="getPlayer()">Get Player</button>
+        </div>
+        <div class="section">
+            <h2>Update Player Score</h2>
+            <input type="text" id="updatePlayerId" placeholder="Enter player ID">
+            <input type="number" id="updatePlayerScore" placeholder="Enter new score">
+            <button onclick="updateScore()">Update Score</button>
+        </div>
+        <div id="playerList"></div>
+        <div id="playerDetails"></div>
+        <div id="scoreDetails"></div>
+    </div>
+</body>
+</html>
